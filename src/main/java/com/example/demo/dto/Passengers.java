@@ -9,7 +9,7 @@ public class Passengers {
 	private String pnrno;
 	private String fromPlace;
 	private String destinationPlace;
-	private long phNo;
+	private int phNo;
 	private String name;
 	private int seatNO;
 
@@ -39,11 +39,11 @@ public class Passengers {
 		this.destinationPlace = destinationPlace;
 	}
 
-	public long getPhNo() {
+	public int getPhNo() {
 		return phNo;
 	}
 
-	public void setPhNo(long phNo) {
+	public void setPhNo(int phNo) {
 		this.phNo = phNo;
 	}
 
