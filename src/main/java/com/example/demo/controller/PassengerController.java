@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,4 +38,10 @@ public class PassengerController {
 	public ResponseEntity<Object> findByRoute(@RequestParam String fromplace,@RequestParam String destinationplace){
 		return service.findByRoute(fromplace,destinationplace); 
 	}
+	
+	@DeleteMapping("/passengers")
+	public ResponseEntity<Object> deleteById(@RequestParam String pnrno){
+		return service.deletById(pnrno); 
+	}
+	
 }

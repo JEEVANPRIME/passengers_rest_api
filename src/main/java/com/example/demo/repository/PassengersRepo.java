@@ -13,6 +13,8 @@ public interface PassengersRepo extends JpaRepository<Passengers, String>{
 
 	List<Passengers> findByFromPlaceAndDestinationPlace(String fromplace, String destinationplace);
 
+	void deleteBySeatNO(int seatNo); 
+
 
 
 

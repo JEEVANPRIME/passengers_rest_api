@@ -68,19 +68,23 @@ public class PassengersService {
 	}
 
 	public ResponseEntity<Object> findByRoute(String fromplace, String destinationplace) {
-		List<Passengers> list=repo.findByFromPlaceAndDestinationPlace(fromplace,destinationplace); 
-		if(list.isEmpty()) {
-			Map<String, Object>map =new HashMap<String, Object>();
+		List<Passengers> list = repo.findByFromPlaceAndDestinationPlace(fromplace, destinationplace);
+		if (list.isEmpty()) {
+			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("message", "not data found");
-			return new ResponseEntity<Object>(map,HttpStatus.NOT_FOUND);
-		}else {
+			return new ResponseEntity<Object>(map, HttpStatus.NOT_FOUND);
+		} else {
 
-			Map<String, Object> map=new HashMap<String, Object>();
-			map.put("Passengers travelling from "+fromplace+" to destination "+destinationplace+" are: ", list);
-			return new ResponseEntity<Object>(map,HttpStatus.FOUND); 
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("Passengers travelling from " + fromplace + " to destination " + destinationplace + " are: ", list);
+			return new ResponseEntity<Object>(map, HttpStatus.FOUND);
 		}
 	}
 
-	
+	public ResponseEntity<Object> deletById(String pnrno) {
+		repo.deleteById(pnrno);
+		return new ResponseEntity<Object>("passenger details deleted with pnrno: " + pnrno, HttpStatus.GONE);
+	}
+
 
 }
